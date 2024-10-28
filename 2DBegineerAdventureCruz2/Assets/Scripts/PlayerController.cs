@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class DuckoController : MonoBehaviour
 {
     
-    public float Speed = 4.0f;
-    private float horizontol;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +18,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horazontol = Input.GetAxis("Horizontol");
+        float horizontol = Input.GetAxis("Horizontol");
         float vertical = Input.GetAxis("vertical");
 
         Vector2 position = transform.position;
-        position.x = position.x + Speed * horizontol * Time.deltaTime;
-        position.y = position.y + Speed * vertical * Time.deltaTime;
+        position.x = position.x + 0.1f * horizontol;
+        position.y = position.y + 0.1f * vertical;
 
         transform.position = position;
     }
