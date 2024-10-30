@@ -18,12 +18,12 @@ public class DuckoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontol = Input.GetAxis("Horizontol");
-        float vertical = Input.GetAxis("vertical");
+        float horizontol = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         Vector2 position = transform.position;
-        position.x = position.x + 0.1f * horizontol;
-        position.y = position.y + 0.1f * vertical;
+        position.x = position.x + 3.0f * horizontol * Time.deltaTime;
+        position.y = position.y + 3.0f * vertical * Time.deltaTime;
 
         transform.position = position;
     }
