@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class HealthC : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
+        DuckoController Controller = other.GetComponent<DuckoController>();
+        if (Controller != null)
+        {
+            if (Controller.health < Controller.maxHealth)
+            {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+                Controller.ChangeHealth(1);
+                Destroy(gameObject);
+            }
+        }
     }
 }
+
